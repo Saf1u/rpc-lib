@@ -1,6 +1,14 @@
 syntax="proto3";
-package proto
-
+package proto;
+import "google/protobuf/timestamp.proto";
+option go_package = "/handlers";
 message Task{
-    
+string taskName=1;
+int64 id=2;
+enum priority{
+    URGENT=0;
+    RELAXED=1;
+}
+repeated string activityTag=3;
+google.protobuf.Timestamp issued = 4;
 }
